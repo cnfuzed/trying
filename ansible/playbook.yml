@@ -1,0 +1,12 @@
+---
+- name: Configure Example Instance
+  hosts: web
+  become: true
+
+  tasks:
+    - name: Install Apache web server
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+  
