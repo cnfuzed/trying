@@ -7,10 +7,10 @@ resource "aws_instance" "example" {
   instance_type          = "t2.micro"               # Choose the instance type
   vpc_security_group_ids = ["sg-0b54d8cfe762af341"] # Specify the security group ID(s)
   vpc_id                 = "vpc-05b1aa09a05202d10"  # Specify the VPC ID
-}
+
 
 tags = {
   Name = "ExampleInstance"
 }
-
+}
 
