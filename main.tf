@@ -4,6 +4,9 @@ provider "aws" {
 
 resource "aws_vpc" "jenkins_automate_vpc" {
   cidr_block = "192.168.0.0/16" # Use 192.168.0.0/16 as the CIDR block for the VPC
+  tags = {
+    Name = "jenkins-automate-VPC"
+  }
 }
 
 resource "aws_subnet" "jenkins_automate_public_subnet1" {
@@ -85,10 +88,13 @@ resource "aws_security_group" "jenkins_automate_security_group" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   } # Add your desired security group rules here
+  tags = {
+    Name = "jenkins-automate-sg"
+  }
 }
 
 resource "aws_instance" "jenkins_automate" {
-  ami                    = "ami-0c94855ba95c71c99" # Specify the desired AMI ID
+  ami                    = "ami-083eed19fc801d7a4" # Specify the desired AMI ID
   instance_type          = "t2.micro"              # Choose the instance type
   subnet_id              = aws_subnet.jenkins_automate_public_subnet1.id
   vpc_security_group_ids = [aws_security_group.jenkins_automate_security_group.id]
