@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"  # Choose your desired region
+  region = "us-east-2"  # Choose your desired region
 }
 
 resource "aws_instance" "example" {
