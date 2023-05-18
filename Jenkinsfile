@@ -4,8 +4,8 @@ pipeline {
   stages {
     stage('Terraform Apply') {
       steps {
-        sh 'terraform init'
-        sh 'terraform apply -auto-approve'
+        sh 'terraform init --no-color'
+        sh 'terraform apply -auto-approve --no-color'
       }
     }
 
