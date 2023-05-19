@@ -1,7 +1,7 @@
 data "template_file" "ansible_inventory" {
   template = <<-EOF
     [web]
-    ${aws_instance.jenkins_automate.private_ip}
+    ${aws_instance.jenkins_automate.public_ip}
   EOF
 }
 
